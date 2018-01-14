@@ -2,6 +2,7 @@ package com.moyu.bi.service.impl;
 
 import com.moyu.bi.dao.DBSourceConfigurationDao;
 import com.moyu.bi.domain.dbconfig.DBConfiguration;
+import com.moyu.bi.domain.dbconfig.DataSourceShow;
 import com.moyu.bi.service.DBSourceConfigurationService;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +24,8 @@ public class DBSourceConfigurationServiceImpl implements DBSourceConfigurationSe
     }
 
     @Override
-    public List<DBConfiguration> getSourceConfig() {
-        List<DBConfiguration> result = dbSourceConfigurationDao.getSourceConfig();
+    public List<DataSourceShow> getSourceConfig() {
+        List<DataSourceShow> result = dbSourceConfigurationDao.getSourceConfig();
         return result;
     }
 }

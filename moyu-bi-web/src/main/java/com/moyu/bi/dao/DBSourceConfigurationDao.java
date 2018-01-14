@@ -1,6 +1,7 @@
 package com.moyu.bi.dao;
 
 import com.moyu.bi.domain.dbconfig.DBConfiguration;
+import com.moyu.bi.domain.dbconfig.DataSourceShow;
 import com.moyu.bi.web.configuration.DevRepository;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
 @DevRepository
 public interface DBSourceConfigurationDao {
     void addSourceConfig(DBConfiguration dbConfiguration);
-    List<DBConfiguration> getSourceConfig();
+    List<DataSourceShow> getSourceConfig();
 }

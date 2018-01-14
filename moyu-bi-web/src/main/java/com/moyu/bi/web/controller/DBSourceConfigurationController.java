@@ -2,6 +2,7 @@ package com.moyu.bi.web.controller;
 
 import com.moyu.bi.common.dbconfig.DBConfigurationUtils;
 import com.moyu.bi.domain.dbconfig.DBConfiguration;
+import com.moyu.bi.domain.dbconfig.DataSourceShow;
 import com.moyu.bi.domain.view.ResponseResult;
 import com.moyu.bi.service.DBSourceConfigurationService;
 import org.apache.log4j.Logger;
@@ -52,9 +53,9 @@ public class DBSourceConfigurationController {
     }
 
     @RequestMapping("/getSourceConfig")
-    public ResponseResult<List<DBConfiguration>> getSourceConfig() {
+    public ResponseResult<List<DataSourceShow>> getSourceConfig() {
         try {
-            List<DBConfiguration> result = dbSourceConfigurationService.getSourceConfig();
+            List<DataSourceShow> result = dbSourceConfigurationService.getSourceConfig();
             return ResponseResult.successReturn(result, result.size());
         } catch (Exception e) {
             throw new RuntimeException("数据源展示失败, " + e.getMessage());

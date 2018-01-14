@@ -1,6 +1,7 @@
 package com.moyu.bi.service;
 
 import com.moyu.bi.domain.dbconfig.DBConfiguration;
+import com.moyu.bi.domain.dbconfig.DataSourceShow;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ import java.util.List;
  */
 public interface DBSourceConfigurationService {
     void addSourceConfig(DBConfiguration dbConfiguration);
-    List<DBConfiguration> getSourceConfig();
+    List<DataSourceShow> getSourceConfig();
 }
