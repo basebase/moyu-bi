@@ -9,6 +9,7 @@ public class DBConfiguration {
     private String jdbcUrl;
     private String dbName;
     private String dbPassword;
+    private String option;
 
     public String getDataSourceName() {
         return dataSourceName;
@@ -48,5 +49,13 @@ public class DBConfiguration {
 
     public void setDbPassword(String dbPassword) {
         this.dbPassword = dbPassword;
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
     }
 }

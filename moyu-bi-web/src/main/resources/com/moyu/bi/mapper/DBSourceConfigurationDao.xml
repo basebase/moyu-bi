@@ -3,15 +3,15 @@
 <mapper namespace="com.moyu.bi.dao.DBSourceConfigurationDao">
     <insert id="addSourceConfig" parameterType="com.moyu.bi.domain.dbconfig.DBConfiguration"
             useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO data_source_config (data_source_name, data_source_desc, url, db_name, db_password)
-        VALUES (#{dataSourceName}, #{dataSourceDesc}, #{jdbcUrl}, #{dbName}, #{dbPassword})
+        INSERT INTO data_source_config (data_source_name, db_type, data_source_desc, url, db_name, db_password)
+        VALUES (#{dataSourceName}, #{option}, #{dataSourceDesc}, #{jdbcUrl}, #{dbName}, #{dbPassword})
     </insert>
 
     <select id="getSourceConfig" resultType="com.moyu.bi.domain.dbconfig.DataSourceShow">
         SELECT
             id AS `key`,
             data_source_name AS sourceName,
-            data_source_desc AS sourceType,
+            db_type AS sourceType,
             db_name AS sourceDescribe
         FROM
             data_source_config
