@@ -99,4 +99,6 @@ public class DBSyncTask implements Serializable {
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
+
+
 }

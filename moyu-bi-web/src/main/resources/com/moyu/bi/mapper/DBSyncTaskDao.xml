@@ -9,4 +9,26 @@
          db_overwrite, db_field_mapper, task_create_time) VALUES (#{taskName}, #{source}, #{sourceTable}, #{targetSource},
          #{targetSourceTable}, #{importBeforeData}, #{importAfterData}, #{overwrite}, #{fieldMapper}, now())
     </insert>
+
+    <select id="findTaskConfigurationById" parameterType="com.moyu.bi.domain.taskconfiguration.Task"
+            resultType="com.moyu.bi.domain.synctask.DBSyncTask">
+        SELECT
+            task_name AS taskName,
+            db_source AS source,
+            db_source_table AS sourceTable,
+            db_target_source AS targetSource,
+            db_target_source_table AS targetSourceTable,
+            db_import_before_data AS importBeforeData,
+            db_import_after_data AS importAfterData,
+            db_overwrite AS overwrite,
+            db_field_mapper AS fieldMapper
+        FROM
+            db_task_config
+        WHERE
+            id = #{id}
+    </select>
+
+    <delete id="deleteTaskConfiguration" parameterType="com.moyu.bi.domain.taskconfiguration.Task">
+        DELETE FROM db_task_config WHERE id = #{id}
+    </delete>
 </mapper>
