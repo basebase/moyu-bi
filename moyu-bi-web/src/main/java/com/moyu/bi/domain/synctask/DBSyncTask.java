@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class DBSyncTask implements Serializable {
 
+    // 任务名称
+    private String taskName;
     // 数据源
     private String source;
     // 数据源表
@@ -88,5 +90,13 @@ public class DBSyncTask implements Serializable {
 
     public void setFieldMapper(String fieldMapper) {
         this.fieldMapper = fieldMapper;
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 }

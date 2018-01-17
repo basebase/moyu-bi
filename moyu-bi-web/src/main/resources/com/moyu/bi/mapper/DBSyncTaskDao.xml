@@ -4,9 +4,9 @@
 
     <insert id="saveTask" parameterType="com.moyu.bi.domain.synctask.DBSyncTask"
             useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO db_task_config (db_source, db_source_table, db_target_source,
+        INSERT INTO db_task_config (task_name, db_source, db_source_table, db_target_source,
          db_target_source_table, db_import_before_data, db_import_after_data,
-         db_overwrite, db_field_mapper) VALUES (#{source}, #{sourceTable}, #{targetSource},
-         #{targetSourceTable}, #{importBeforeData}, #{importAfterData}, #{overwrite}, #{fieldMapper})
+         db_overwrite, db_field_mapper, task_create_time) VALUES (#{taskName}, #{source}, #{sourceTable}, #{targetSource},
+         #{targetSourceTable}, #{importBeforeData}, #{importAfterData}, #{overwrite}, #{fieldMapper}, now())
     </insert>
 </mapper>
