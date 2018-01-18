@@ -31,4 +31,22 @@
     <delete id="deleteTaskConfiguration" parameterType="com.moyu.bi.domain.taskconfiguration.Task">
         DELETE FROM db_task_config WHERE id = #{id}
     </delete>
+
+    <update id="updateTaskConfiguration" parameterType="com.moyu.bi.domain.synctask.DBSyncTask">
+        UPDATE
+            db_task_config
+        SET
+            task_name = #{taskName},
+            db_source = #{source},
+            db_source_table = #{sourceTable},
+            db_target_source = #{targetSource},
+            db_target_source_table = #{targetSourceTable},
+            db_import_before_data = #{importBeforeData},
+            db_import_after_data = #{importAfterData},
+            db_overwrite = #{overwrite},
+            db_field_mapper = #{fieldMapper},
+            task_create_time = now()
+        WHERE
+            id = #{configId}
+    </update>
 </mapper>

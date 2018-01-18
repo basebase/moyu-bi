@@ -12,4 +12,5 @@ public interface DBSyncTaskDao {
     void saveTask(DBSyncTask dbSyncTask);
     DBSyncTask findTaskConfigurationById(Task task);
     void deleteTaskConfiguration(Task task);
+    void updateTaskConfiguration(DBSyncTask dbSyncTask);
 }

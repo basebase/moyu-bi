@@ -10,4 +10,5 @@ public interface DBSyncTaskService {
     void saveTask(DBSyncTask dbSyncTask);
     DBSyncTask findTaskConfigurationById(Task id);
     void deleteTaskConfiguration(Task task);
+    void updateTaskConfiguration(DBSyncTask dbSyncTask);
 }

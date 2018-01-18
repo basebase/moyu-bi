@@ -32,4 +32,9 @@ public class DBSyncTaskServiceImpl implements DBSyncTaskService {
     public void deleteTaskConfiguration(Task task) {
         dbSyncTaskDao.deleteTaskConfiguration(task);
     }
+
+    @Override
+    public void updateTaskConfiguration(DBSyncTask dbSyncTask) {
+        dbSyncTaskDao.updateTaskConfiguration(dbSyncTask);
+    }
 }

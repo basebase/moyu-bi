@@ -8,6 +8,9 @@ import java.util.List;
  */
 public class DBSyncTask implements Serializable {
 
+    // 配置信息id
+    private String configId;
+
     // 任务名称
     private String taskName;
     // 数据源
@@ -100,5 +103,11 @@ public class DBSyncTask implements Serializable {
         this.taskName = taskName;
     }
 
+    public String getConfigId() {
+        return configId;
+    }
 
+    public void setConfigId(String configId) {
+        this.configId = configId;
+    }
 }

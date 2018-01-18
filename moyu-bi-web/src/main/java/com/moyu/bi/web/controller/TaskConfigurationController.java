@@ -65,5 +65,16 @@ public class TaskConfigurationController {
         }
     }
 
+    @RequestMapping("/editTaskConfiguration")
+    public ResponseResult<Boolean> editTaskConfiguration(@RequestBody DBSyncTask dbSyncTask) {
+        try {
+            dbSyncTaskService.updateTaskConfiguration(dbSyncTask);
+            return ResponseResult.successReturn(Boolean.TRUE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("更新配置失败, 请联系管理员.!");
+        }
+    }
+
 
 }
