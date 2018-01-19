@@ -1,9 +1,11 @@
 package com.moyu.bi.web.controller;
 
+import com.moyu.bi.domain.dbconfig.DBConfiguration;
 import com.moyu.bi.domain.synctask.DBSyncTask;
 import com.moyu.bi.domain.taskconfiguration.Task;
 import com.moyu.bi.domain.taskconfiguration.TaskConfiguraitonView;
 import com.moyu.bi.domain.view.ResponseResult;
+import com.moyu.bi.service.DBSourceConfigurationService;
 import com.moyu.bi.service.DBSyncTaskService;
 import com.moyu.bi.service.TaskConfigurationService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -30,6 +32,9 @@ public class TaskConfigurationController {
 
     @Resource
     private DBSyncTaskService dbSyncTaskService;
+
+    @Resource
+    private DBSourceConfigurationService dbSourceConfigurationService;
 
     @RequestMapping("/getTaskConfiguration")
     public ResponseResult<List<TaskConfiguraitonView>> getTaskConfiguration() {
@@ -76,5 +81,25 @@ public class TaskConfigurationController {
         }
     }
 
+    @RequestMapping("/showSource")
+    public ResponseResult<List<String>> showSource() {
+        try {
+            List<String> sources = dbSourceConfigurationService.findAllSource();
+            return ResponseResult.successReturn(sources);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取数据源失败.!");
+        }
+    }
 
+    @RequestMapping("/showSourceTable")
+    public ResponseResult<List<String>> showSourceTable(@RequestBody DBConfiguration dbConfiguration) {
+        try {
+            List<String> res = dbSourceConfigurationService.showSourceTable(dbConfiguration);
+            return ResponseResult.successReturn(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取表失败, 请检查数据源.!");
+        }
+    }
 }

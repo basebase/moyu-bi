@@ -13,4 +13,6 @@ import java.util.List;
 public interface DBSourceConfigurationDao {
     void addSourceConfig(DBConfiguration dbConfiguration);
     List<DataSourceShow> getSourceConfig();
+    List<String> findAllSource();
+    List<DBConfiguration> showSourceTable(DBConfiguration dbConfiguration);
 }

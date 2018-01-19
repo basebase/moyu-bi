@@ -11,4 +11,6 @@ import java.util.List;
 public interface DBSourceConfigurationService {
     void addSourceConfig(DBConfiguration dbConfiguration);
     List<DataSourceShow> getSourceConfig();
+    List<String> findAllSource();
+    List<String> showSourceTable(DBConfiguration dbConfiguration);
 }

@@ -16,4 +16,24 @@
         FROM
             data_source_config
     </select>
+
+    <select id="findAllSource" resultType="java.lang.String">
+        SELECT
+            data_source_name
+        FROM
+            data_source_config
+    </select>
+
+    <select id="showSourceTable" parameterType="com.moyu.bi.domain.dbconfig.DBConfiguration" resultType="com.moyu.bi.domain.dbconfig.DBConfiguration">
+        SELECT
+            data_source_name AS dataSourceName,
+            data_source_desc AS dataSourceDesc,
+            url AS jdbcUrl,
+            db_name AS dbName,
+            db_password AS dbPassword
+        FROM
+            data_source_config
+        WHERE
+            data_source_name = #{dataSourceName}
+    </select>
 </mapper>
