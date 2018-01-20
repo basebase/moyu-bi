@@ -75,4 +75,9 @@ public class DBSourceConfigurationServiceImpl implements DBSourceConfigurationSe
         }
         return null;
     }
+
+    @Override
+    public void delSourceConfig(DBConfiguration dbConfiguration) {
+        dbSourceConfigurationDao.delSourceConfig(dbConfiguration);
+    }
 }

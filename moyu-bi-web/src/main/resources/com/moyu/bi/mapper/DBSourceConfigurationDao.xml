@@ -36,4 +36,12 @@
         WHERE
             data_source_name = #{dataSourceName}
     </select>
+
+    <delete id="delSourceConfig" parameterType="com.moyu.bi.domain.dbconfig.DBConfiguration">
+        DELETE FROM data_source_config WHERE id in
+        <foreach item="config_id" index="index" collection="configIds"
+                 open="(" separator="," close=")">
+         #{config_id}
+        </foreach>
+    </delete>
 </mapper>

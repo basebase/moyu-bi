@@ -15,4 +15,5 @@ public interface DBSourceConfigurationDao {
     List<DataSourceShow> getSourceConfig();
     List<String> findAllSource();
     List<DBConfiguration> showSourceTable(DBConfiguration dbConfiguration);
+    void delSourceConfig(DBConfiguration dbConfiguration);
 }

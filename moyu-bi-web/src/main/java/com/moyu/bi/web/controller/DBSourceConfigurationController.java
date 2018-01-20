@@ -61,4 +61,15 @@ public class DBSourceConfigurationController {
             throw new RuntimeException("数据源展示失败, " + e.getMessage());
         }
     }
+
+    @RequestMapping("/delSourceConfig")
+    public ResponseResult<String> delSourceConfig(@RequestBody DBConfiguration dbConfiguration) {
+        try {
+            dbSourceConfigurationService.delSourceConfig(dbConfiguration);
+            return ResponseResult.successReturn("配置删除成功.!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("删除配置失败.!");
+        }
+    }
 }

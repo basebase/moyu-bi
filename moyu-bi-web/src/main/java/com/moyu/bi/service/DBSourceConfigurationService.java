@@ -15,4 +15,5 @@ public interface DBSourceConfigurationService {
     List<String> findAllSource();
     List<String> showSourceTable(DBConfiguration dbConfiguration);
     Map<String, String> showSourceTableField(DBConfiguration dbConfiguration);
+    void delSourceConfig(DBConfiguration dbConfiguration);
 }

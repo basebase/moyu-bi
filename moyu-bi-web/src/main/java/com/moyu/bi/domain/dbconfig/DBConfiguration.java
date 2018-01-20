@@ -13,6 +13,8 @@ public class DBConfiguration {
 
     private String table;
 
+    private String[] configIds;
+
     public String getDataSourceName() {
         return dataSourceName;
     }
@@ -67,5 +69,13 @@ public class DBConfiguration {
 
     public void setTable(String table) {
         this.table = table;
+    }
+
+    public String[] getConfigIds() {
+        return configIds;
+    }
+
+    public void setConfigIds(String[] configIds) {
+        this.configIds = configIds;
     }
 }
