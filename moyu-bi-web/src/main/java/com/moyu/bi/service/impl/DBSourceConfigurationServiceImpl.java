@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Joker on 18/1/13.
@@ -48,6 +49,25 @@ public class DBSourceConfigurationServiceImpl implements DBSourceConfigurationSe
 
             List<String> tables = DBConfigurationUtils.getTables(config.getJdbcUrl(), config.getDbName(), config.getDbPassword());
             return tables;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Map<String, String> showSourceTableField(DBConfiguration dbConfiguration) {
+        // 查询出数据源信息
+        List<DBConfiguration> dbConfigurationList = dbSourceConfigurationDao.showSourceTable(dbConfiguration);
+        try {
+            DBConfiguration config = dbConfigurationList != null ? dbConfigurationList.get(0) : null;
+            if (config == null)
+                return null;
+
+            Map<String, String> tableFields = DBConfigurationUtils.getTableFields(config.getJdbcUrl(), config.getDbName(), config.getDbPassword(), dbConfiguration.getTable());
+            return tableFields;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

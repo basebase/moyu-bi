@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Joker on 18/1/16.
@@ -100,6 +101,17 @@ public class TaskConfigurationController {
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("获取表失败, 请检查数据源.!");
+        }
+    }
+
+    @RequestMapping("/showSourceTableField")
+    public ResponseResult<Map<String, String>> showSourceTableField(@RequestBody DBConfiguration dbConfiguration) {
+        try {
+            Map<String, String> res = dbSourceConfigurationService.showSourceTableField(dbConfiguration);
+            return ResponseResult.successReturn(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取字段, 请检查数据源.!");
         }
     }
 }

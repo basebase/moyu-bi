@@ -11,6 +11,8 @@ public class DBConfiguration {
     private String dbPassword;
     private String option;
 
+    private String table;
+
     public String getDataSourceName() {
         return dataSourceName;
     }
@@ -59,5 +61,11 @@ public class DBConfiguration {
         this.option = option;
     }
 
+    public String getTable() {
+        return table;
+    }
 
+    public void setTable(String table) {
+        this.table = table;
+    }
 }
