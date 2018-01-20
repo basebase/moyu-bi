@@ -72,10 +72,10 @@ public class TaskConfigurationController {
     }
 
     @RequestMapping("/editTaskConfiguration")
-    public ResponseResult<Boolean> editTaskConfiguration(@RequestBody DBSyncTask dbSyncTask) {
+    public ResponseResult<String> editTaskConfiguration(@RequestBody DBSyncTask dbSyncTask) {
         try {
             dbSyncTaskService.updateTaskConfiguration(dbSyncTask);
-            return ResponseResult.successReturn(Boolean.TRUE);
+            return ResponseResult.successReturn("配置修改成功");
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("更新配置失败, 请联系管理员.!");
