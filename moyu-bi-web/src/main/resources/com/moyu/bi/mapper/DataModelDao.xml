@@ -6,4 +6,15 @@
         INSERT INTO data_model (model_name, data_source_db_name, data_source_table_name, note, transverse, longitudinal, data_model_create_time)
         VALUES (#{modelName}, #{dbName}, #{tabName}, #{modelDesc}, #{transverse}, #{longitudinal}, now())
     </insert>
+
+    <select id="showDataModelList" resultType="com.moyu.bi.domain.datamodel.DataModel">
+        SELECT
+            id AS `key`,
+            model_name AS modelName,
+            data_source_db_name AS dbName,
+            data_source_table_name AS tabName,
+            note AS modelDesc
+        FROM
+            data_model
+    </select>
 </mapper>

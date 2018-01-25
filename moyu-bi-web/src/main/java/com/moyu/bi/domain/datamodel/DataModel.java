@@ -4,6 +4,8 @@ package com.moyu.bi.domain.datamodel;
  * Created by Joker on 18/1/25.
  */
 public class DataModel {
+
+    private String key;
     private String dbName;
     private String tabName;
     private String modelDesc;
@@ -57,5 +59,13 @@ public class DataModel {
 
     public void setLongitudinal(String longitudinal) {
         this.longitudinal = longitudinal;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

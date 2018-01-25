@@ -6,6 +6,7 @@ import com.moyu.bi.service.DataModelService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by Joker on 18/1/25.
@@ -19,5 +20,11 @@ public class DataModelServiceImpl implements DataModelService {
     @Override
     public void saveDataModel(DataModel dataModel) {
         dataModelDao.saveDataModel(dataModel);
+    }
+
+    @Override
+    public List<DataModel> showDataModelList() {
+        List<DataModel> res = dataModelDao.showDataModelList();
+        return res;
     }
 }

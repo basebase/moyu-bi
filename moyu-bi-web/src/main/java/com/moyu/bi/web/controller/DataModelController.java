@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by Joker on 18/1/25.
@@ -29,6 +30,17 @@ public class DataModelController {
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("保存失败, 请和管理员联系.!");
+        }
+    }
+
+    @RequestMapping("/showDataModelList")
+    public ResponseResult<List<DataModel>> showDataModelList() {
+        try {
+            List<DataModel> res = dataModelService.showDataModelList();
+            return ResponseResult.successReturn(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("展示失败, 请和管理员联系.!");
         }
     }
 }
