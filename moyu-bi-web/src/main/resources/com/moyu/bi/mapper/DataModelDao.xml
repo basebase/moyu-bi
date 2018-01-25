@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moyu.bi.dao.DataModelDao">
+    <insert id="saveDataModel" parameterType="com.moyu.bi.domain.datamodel.DataModel"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO data_model (model_name, data_source_db_name, data_source_table_name, note, transverse, longitudinal, data_model_create_time)
+        VALUES (#{modelName}, #{dbName}, #{tabName}, #{modelDesc}, #{transverse}, #{longitudinal}, now())
+    </insert>
+</mapper>
