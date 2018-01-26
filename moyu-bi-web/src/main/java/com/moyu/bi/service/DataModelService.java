@@ -10,4 +10,5 @@ import java.util.List;
 public interface DataModelService {
     void saveDataModel(DataModel dataModel);
     List<DataModel> showDataModelList();
+    DataModel showDataModelById(DataModel dataModel);
 }

@@ -17,4 +17,20 @@
         FROM
             data_model
     </select>
+
+    <select id="showDataModelById" parameterType="com.moyu.bi.domain.datamodel.DataModel"
+            resultType="com.moyu.bi.domain.datamodel.DataModel">
+        SELECT
+            id AS `key`,
+            model_name AS modelName,
+            data_source_db_name AS dbName,
+            data_source_table_name AS tabName,
+            note AS modelDesc,
+            transverse AS transverse,
+            longitudinal AS longitudinal
+        FROM
+            data_model
+        WHERE
+            id = #{key}
+    </select>
 </mapper>

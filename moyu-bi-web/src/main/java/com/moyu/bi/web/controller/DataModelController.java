@@ -43,4 +43,17 @@ public class DataModelController {
             throw new RuntimeException("展示失败, 请和管理员联系.!");
         }
     }
+
+
+    @RequestMapping("/showDataModel")
+    public ResponseResult<DataModel> showDataModel(@RequestBody DataModel dataModel) {
+        try {
+            DataModel res = dataModelService.showDataModelById(dataModel);
+            return ResponseResult.successReturn(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("展示失败, 请和管理员联系.!");
+        }
+    }
+
 }

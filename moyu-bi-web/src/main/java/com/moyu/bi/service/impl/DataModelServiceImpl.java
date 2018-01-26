@@ -27,4 +27,10 @@ public class DataModelServiceImpl implements DataModelService {
         List<DataModel> res = dataModelDao.showDataModelList();
         return res;
     }
+
+    @Override
+    public DataModel showDataModelById(DataModel dataModel) {
+        DataModel tagDataModel = dataModelDao.showDataModelById(dataModel);
+        return tagDataModel;
+    }
 }
