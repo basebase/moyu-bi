@@ -56,4 +56,26 @@ public class DataModelController {
         }
     }
 
+
+    @RequestMapping("/updateDataModel")
+    public ResponseResult<String> updateDataModel(@RequestBody DataModel dataModel) {
+        try {
+            dataModelService.updateDataModel(dataModel);
+            return ResponseResult.successReturn("数据模型更新成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("更新失败, 请和管理员联系.!");
+        }
+    }
+
+    @RequestMapping("/delDataModel")
+    public ResponseResult<String> delDataModel(@RequestBody DataModel dataModel) {
+        try {
+            dataModelService.delDataModel(dataModel);
+            return ResponseResult.successReturn("数据模型删除成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("删除失败, 请和管理员联系.!");
+        }
+    }
 }

@@ -33,4 +33,23 @@
         WHERE
             id = #{key}
     </select>
+
+    <update id="updateDataModel" parameterType="com.moyu.bi.domain.datamodel.DataModel">
+        UPDATE
+            data_model
+        SET
+            model_name = #{modelName},
+            data_source_db_name = #{dbName},
+            data_source_table_name = #{tabName},
+            note = #{modelDesc},
+            transverse = #{transverse},
+            longitudinal = #{longitudinal},
+            data_model_create_time = now()
+        WHERE
+            id = #{key}
+    </update>
+
+    <delete id="delDataModel" parameterType="com.moyu.bi.domain.datamodel.DataModel">
+        DELETE FROM data_model WHERE id = #{key}
+    </delete>
 </mapper>

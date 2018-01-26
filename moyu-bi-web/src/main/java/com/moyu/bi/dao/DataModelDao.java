@@ -13,4 +13,6 @@ public interface DataModelDao {
     void saveDataModel(DataModel dataModel);
     List<DataModel> showDataModelList();
     DataModel showDataModelById(DataModel dataModel);
+    void updateDataModel(DataModel dataModel);
+    void delDataModel(DataModel dataModel);
 }
