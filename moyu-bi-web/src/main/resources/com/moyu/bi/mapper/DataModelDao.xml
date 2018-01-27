@@ -52,4 +52,25 @@
     <delete id="delDataModel" parameterType="com.moyu.bi.domain.datamodel.DataModel">
         DELETE FROM data_model WHERE id = #{key}
     </delete>
+
+    <select id="genTree" parameterType="com.moyu.bi.domain.datamodel.DataModel"
+            resultType="com.moyu.bi.domain.datamodel.DataModel">
+        SELECT
+            transverse AS transverse,
+            longitudinal AS longitudinal
+        FROM
+            data_model
+        WHERE
+            id = #{key}
+    </select>
+
+    <select id="getDataModelTable" parameterType="com.moyu.bi.domain.datamodel.DataModel"
+            resultType="java.lang.String">
+        SELECT
+            data_source_table_name AS tabName
+        FROM
+            data_model
+        WHERE
+            id = #{key}
+    </select>
 </mapper>

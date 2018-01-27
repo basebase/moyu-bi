@@ -43,4 +43,16 @@ public class DataModelServiceImpl implements DataModelService {
     public void delDataModel(DataModel dataModel) {
         dataModelDao.delDataModel(dataModel);
     }
+
+    @Override
+    public DataModel genTree(DataModel dataModel) {
+        DataModel tagDataModel = dataModelDao.genTree(dataModel);
+        return tagDataModel;
+    }
+
+    @Override
+    public String getDataModelTable(DataModel dataModel) {
+        String tableName = dataModelDao.getDataModelTable(dataModel);
+        return tableName;
+    }
 }

@@ -78,4 +78,26 @@ public class DataModelController {
             throw new RuntimeException("删除失败, 请和管理员联系.!");
         }
     }
+
+    @RequestMapping("/genTree")
+    public ResponseResult<DataModel> genTree(@RequestBody DataModel dataModel) {
+        try {
+            DataModel dataModelResponse = dataModelService.genTree(dataModel);
+            return ResponseResult.successReturn(dataModelResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("生成菜单树失败, 请和管理员联系.!");
+        }
+    }
+
+    @RequestMapping("/getDataModelTable")
+    public ResponseResult<String> getDataModelTable(@RequestBody DataModel dataModel) {
+        try {
+            String tableName = dataModelService.getDataModelTable(dataModel);
+            return ResponseResult.successReturn(tableName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取数据模型表失败, 请和管理员联系.!");
+        }
+    }
 }

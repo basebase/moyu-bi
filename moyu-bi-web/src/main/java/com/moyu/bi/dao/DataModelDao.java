@@ -15,4 +15,6 @@ public interface DataModelDao {
     DataModel showDataModelById(DataModel dataModel);
     void updateDataModel(DataModel dataModel);
     void delDataModel(DataModel dataModel);
+    DataModel genTree(DataModel dataModel);
+    String getDataModelTable(DataModel dataModel);
 }
