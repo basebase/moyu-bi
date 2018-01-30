@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moyu.bi.dao.ReportDao">
+    <select id="getReportData" parameterType="com.moyu.bi.domain.report.Report" resultType="com.moyu.bi.domain.report.Report">
+        SELECT
+        <foreach item="value" index="key" collection="transverseColumnMap.entrySet()" separator=",">
+            ${key}
+        </foreach>
+        FROM
+            ${tableName}
+        <where>
+            <foreach item="value" index="key" collection="transverseWhereMap.entrySet()" separator="AND">
+                ${key} = #{value}
+            </foreach>
+        </where>
+    </select>
+</mapper>
