@@ -1,6 +1,7 @@
 package com.moyu.bi.domain.report;
 
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,6 +17,8 @@ public class Report {
 
     private Map<String, Object> transverseColumnMap;
     private Map<String, Object> longitudinaMap;
+
+    private List<String> longitudinaList;
 
     public String getTableName() {
         return tableName;
@@ -63,5 +66,13 @@ public class Report {
 
     public void setLongitudinaMap(Map<String, Object> longitudinaMap) {
         this.longitudinaMap = longitudinaMap;
+    }
+
+    public List<String> getLongitudinaList() {
+        return longitudinaList;
+    }
+
+    public void setLongitudinaList(List<String> longitudinaList) {
+        this.longitudinaList = longitudinaList;
     }
 }

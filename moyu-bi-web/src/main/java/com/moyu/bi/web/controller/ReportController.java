@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,11 +24,10 @@ public class ReportController {
     private ReportService reportService;
 
     @RequestMapping("/getReportData")
-    public ResponseResult getReportData(@RequestBody Report report) {
+    public ResponseResult<List<Map<String, String>>> getReportData(@RequestBody Report report) {
         try {
-            reportService.getReportData(report);
-
-            return null;
+            List<Map<String, String>> reportData = reportService.getReportData(report);
+            return ResponseResult.successReturn(reportData);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("获取数据失败");

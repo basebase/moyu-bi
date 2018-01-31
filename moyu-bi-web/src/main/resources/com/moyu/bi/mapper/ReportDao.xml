@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.moyu.bi.dao.ReportDao">
-    <select id="getReportData" parameterType="com.moyu.bi.domain.report.Report" resultType="com.moyu.bi.domain.report.Report">
+
+    <sql id="filterxColumn">
+        <if test="transverseColumnMap != null">
+            <foreach item="value" index="key" collection="transverseColumnMap.entrySet()" separator=",">
+                ${key}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="filteryColumn">
+        <if test="longitudinaList != null and longitudinaList.size() > 0">
+
+            <if test="transverseColumnMap != null and transverseColumnMap.size() > 0">
+                ,
+            </if>
+
+            <foreach collection="longitudinaList" index="index" item="item" separator=",">
+                ${item}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="groupby">
+        <if test="transverseColumnMap != null and transverseColumnMap.size() > 0">
+            GROUP BY
+            <foreach item="value" index="key" collection="transverseColumnMap.entrySet()" separator=",">
+                ${key}
+            </foreach>
+        </if>
+
+
+        <if test="transverseWhereMap != null and transverseWhereMap.size() > 0">
+
+            <if test="transverseColumnMap == null or transverseColumnMap.size() == 0">
+                GROUP BY
+            </if>
+
+            <foreach item="value" index="key" collection="transverseWhereMap.entrySet()" separator=",">
+                ${key}
+            </foreach>
+        </if>
+
+    </sql>
+
+    <select id="getReportData" parameterType="com.moyu.bi.domain.report.Report" resultType="java.util.HashMap">
         SELECT
-        <foreach item="value" index="key" collection="transverseColumnMap.entrySet()" separator=",">
-            ${key}
-        </foreach>
+            <include refid="filterxColumn" />
+            <include refid="filteryColumn" />
         FROM
             ${tableName}
         <where>
@@ -13,5 +56,8 @@
                 ${key} = #{value}
             </foreach>
         </where>
+
+        <include refid="groupby" />
+
     </select>
 </mapper>
