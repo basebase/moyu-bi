@@ -3,8 +3,17 @@
 <mapper namespace="com.moyu.bi.dao.ReportDao">
 
     <sql id="filterxColumn">
-        <if test="transverseColumnMap != null">
+        <if test="transverseColumnMap != null and transverseColumnMap.size() > 0">
             <foreach item="value" index="key" collection="transverseColumnMap.entrySet()" separator=",">
+                ${key}
+            </foreach>
+            <if test="transverseWhereMap != null and transverseWhereMap.size() > 0">
+                ,
+            </if>
+        </if>
+
+        <if test="transverseWhereMap != null and transverseWhereMap.size() > 0">
+            <foreach item="value" index="key" collection="transverseWhereMap.entrySet()" separator=",">
                 ${key}
             </foreach>
         </if>
@@ -29,6 +38,9 @@
             <foreach item="value" index="key" collection="transverseColumnMap.entrySet()" separator=",">
                 ${key}
             </foreach>
+            <if test="transverseWhereMap != null and transverseWhereMap.size() > 0">
+                ,
+            </if>
         </if>
 
 
