@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moyu.bi.dao.TestDoubleSourceDao">
+    <select id="testJoin" resultType="java.lang.Integer">
+        select `bi2`.user_info.salary from `bi`.user join `bi2`.user_info
+    </select>
+</mapper>
